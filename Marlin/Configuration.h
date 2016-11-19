@@ -399,7 +399,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
   // these are the offsets to the probe relative to the extruder tip (Hotend - Probe)
   #define X_PROBE_OFFSET_FROM_EXTRUDER 0.0
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0.0
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER 0.125  // Increase this if the first layer is too thin.
+  // note: I'm increasing this to 0.14 to see if it resolves issues with the first layer not printing well in some spots.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER 0.14  // Increase this if the first layer is too thin.
 
   #define Z_RAISE_BEFORE_HOMING 10       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
