@@ -75,7 +75,11 @@
 // extruder temperature is above/below EXTRUDER_AUTO_FAN_TEMPERATURE.
 // Multiple extruders can be assigned to the same pin in which case
 // the fan will turn on when any selected extruder is above the threshold.
-#define EXTRUDER_0_AUTO_FAN_PIN   4
+// note: The versions of the firmware I forked had this set to pin 4. The original
+// version of the firmware had this set to -1. I reverted to -1 since my fans aren't
+// wired to take into account this configuration. I may revert or update my printer
+// at some point to automate the fan.
+#define EXTRUDER_0_AUTO_FAN_PIN   -1
 #define EXTRUDER_1_AUTO_FAN_PIN   -1
 #define EXTRUDER_2_AUTO_FAN_PIN   -1
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50

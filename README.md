@@ -1,3 +1,9 @@
+# Custom Marlin 3D Printer Firmware
+
+This is a fork of a fork of a copy of the Marlin 3D printer firmware. I have customized this for my own _modified_ DeltaPrinter 3D printer.
+
+This version of Marlin is likely not very useful to anyone other than myself.
+
 ==========================
 Marlin 3D Printer Firmware
 ==========================

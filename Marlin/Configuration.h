@@ -106,23 +106,26 @@
 #define DELTA_SEGMENTS_PER_SECOND 200
 
 // Center-to-center distance of the holes in the diagonal push rods.
- #define DELTA_DIAGONAL_ROD 255.0 // mm
+// note: Edited by doug to correct rod configuration for XL size
+ #define DELTA_DIAGONAL_ROD 306.0 // mm
 
 // Horizontal offset from middle of printer to smooth rod center.
- #define DELTA_SMOOTH_ROD_OFFSET 184.9 // mm
+// note: Edited by doug to correct rod configuration for XL size
+ #define DELTA_SMOOTH_ROD_OFFSET 210.9 // mm CHANGED
 
 // Horizontal offset of the universal joints on the end effector.
 #define DELTA_EFFECTOR_OFFSET 19.94 // mm
 
 // Horizontal offset of the universal joints on the carriages.
- #define DELTA_CARRIAGE_OFFSET 30
+// note: Edited by doug to correct rod configuration for XL size
+ #define DELTA_CARRIAGE_OFFSET 30.0
 
 // Horizontal distance bridged by diagonal push rods when effector is centered.
 #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
 
 // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
- #define DELTA_PRINTABLE_RADIUS 127.0
-
+// note: Edited by doug to set correct (enough) bed radius for XL size
+ #define DELTA_PRINTABLE_RADIUS 153.0
 
 // Effective X/Y positions of the three vertical towers.
 #define SIN_60 0.8660254037844386
@@ -463,7 +466,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 // For deltabots this means top and center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS 0
 #define MANUAL_Y_HOME_POS 0
-#define MANUAL_Z_HOME_POS 338.0 // For delta: Distance between nozzle and print surface after homing.
+// note: Edited by doug to set correct distance from nozzle to print surface for
+// my own custom XL version. The default XL is actually 500 (well, the default default, 
+// which crashes) was 502. Either way, I measued the distance using Repetier Host and
+// 419.8 seems correct.
+#define MANUAL_Z_HOME_POS 419.8 // For delta: Distance between nozzle and print surface after homing.
 
 //// MOVEMENT SETTINGS
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
@@ -477,7 +484,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define XYZ_PULLEY_TEETH 16
 #define XYZ_STEPS (XYZ_FULL_STEPS_PER_ROTATION * XYZ_MICROSTEPS / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH))
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {57.8053,57.8053,57.8053, 109.4}  // Ryan's Mod... changed extruder calibration steps/mm from 94.5 to 109.4
+// note: at one point in time my printer wasn't printing things at the correct size. IE: 10mm was maybe 12mm.
+// I spent time printing, measuring, etc, until I found that the steps per axis were as follows. This may 
+// need to be changed now that my printer is a different size, but we'll wait and see.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {56.4673, 56.4673, 56.4673, 109.4}
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   {57.8053,57.8053,57.8053, 109.4}  // Ryan's Mod... changed extruder calibration steps/mm from 94.5 to 109.4
 #define DEFAULT_MAX_FEEDRATE          {200, 200, 200, 25}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {2000,2000,2000,2000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
